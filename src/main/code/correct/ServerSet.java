@@ -28,16 +28,18 @@ public class ServerSet implements ElementSet<ServerElement> {
         if(set.size() == 0){
             throw new RuntimeException("No more servers");
         }
-        int random = (int)(Math.random()* set.size());
-        ServerElement randomElement = (ServerElement)set.toArray()[random];
-        System.out.printf("Random=%d, Name=%s%n",random,randomElement.getName());
+        int random = (int)(Math.random() * set.size());
 
-        return randomElement;
-//        for(ServerElement e : set){
-//            if(random-- <= 0){
-//                return e;
-//            }
-//        }
-//        return null;
+//        ServerElement randomElement = (ServerElement)set.toArray()[random];
+//        System.out.printf("Random=%d, Name=%s%n",random,randomElement.getName());
+//        return randomElement;
+
+        for(ServerElement e : set){
+            if(random-- <= 0){
+                System.out.printf("Random=%d, Name=%s%n",random,e.getName());
+                return e;
+            }
+        }
+        return null;
     }
 }
