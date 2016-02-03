@@ -9,12 +9,15 @@ public class ServerSet implements ElementSet<ServerElement> {
 
     @Override
     public void add(ServerElement newServer){
+        if(newServer == null){
+            throw new RuntimeException("server does not exist");
+        }
         set.add(newServer);
     }
 
     @Override
     public void remove(ServerElement serverToRemove){
-        if(!set.contains(serverToRemove)){
+        if(serverToRemove == null || !set.contains(serverToRemove)){
             throw new RuntimeException("server does not exist");
         }
         set.remove(serverToRemove);

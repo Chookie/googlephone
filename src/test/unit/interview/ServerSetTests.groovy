@@ -25,7 +25,7 @@ public class ServerSetTests extends Specification {
         set.getRandomElement()
 
         then:
-        throw(RuntimeException.class);
+        thrown(RuntimeException)
     }
 
     def 'Random returns server with least load'() {
